@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: MainDeck
+  m_EditorClassIdentifier: Assembly-CSharp::Deck
+  availableUnits:
+  - {fileID: 3964123960666759939, guid: a57634424a60b7ca99b58da239f320ac, type: 3}
+  - {fileID: 8624564148569494245, guid: 7114c4a8025cbd28899343bacf62399a, type: 3}
+  - {fileID: 3663277009507059514, guid: d28c4097dc8c7bfdba1431289523aad0, type: 3}

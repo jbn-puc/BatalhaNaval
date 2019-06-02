@@ -1,5 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using UnityEngine;
+
+[CreateAssetMenu(menuName = "JBN/Deck")]
+public class Deck : ScriptableObject {
+    public List<Unit> availableUnits;
+}
 
 public class GameManager : MonoBehaviour {
     public GridSlot slotPrefab;
