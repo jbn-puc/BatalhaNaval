@@ -42,10 +42,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 408047737385979313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 722c3282698840719d539fc21d43588b, type: 3}
+  m_Script: {fileID: 11500000, guid: a8e7760b1e16fcc46af0568d284706cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
+  renderer: {fileID: 4012800436679692124}
+  hoverBrightnessIncrease: 0.25
+  normal: {r: 1, g: 1, b: 1, a: 0.2}
+  friendly: {r: 0.2901961, g: 0.63529414, b: 1, a: 0.5019608}
+  enemy: {r: 1, g: 0.29019606, b: 0.29019606, a: 0.5019608}
+  empty: {r: 0, g: 0, b: 0, a: 0.8}
+  isHovered: 0
+  isAlly: 0
+  isExposed: 0
 --- !u!33 &1830567016018201368
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -71,7 +80,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c6e7e49d14b412afa6cba2ada65c2b8, type: 2}
+  - {fileID: 2100000, guid: 3d582587ab53a6e4da171a26fe01005f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

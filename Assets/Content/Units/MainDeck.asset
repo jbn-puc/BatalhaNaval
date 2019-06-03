@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: fae2c5b394fc4257baece863e03b88d8, type: 3}
   m_Name: MainDeck
-  m_EditorClassIdentifier: Assembly-CSharp::Deck
+  m_EditorClassIdentifier: 
   availableUnits:
-  - {fileID: 3964123960666759939, guid: a57634424a60b7ca99b58da239f320ac, type: 3}
-  - {fileID: 8624564148569494245, guid: 7114c4a8025cbd28899343bacf62399a, type: 3}
-  - {fileID: 3663277009507059514, guid: d28c4097dc8c7bfdba1431289523aad0, type: 3}
+  - {fileID: 8624564148569494245, guid: 0ef1d7651f20a3d45ba8e0825d2205d8, type: 3}
+  - {fileID: 8624564148569494245, guid: 094fde380001e47449b635c37d5ef232, type: 3}
+  - {fileID: 8624564148569494245, guid: 2cfc4b536bc053d47af228ab0d21aa12, type: 3}
