@@ -27,7 +27,6 @@ public class Field
             for (var y = 0; y < height; y++)
             { 
                 var obj = Grid[x, y] = Object.Instantiate(slotPrefab, layout.transform);
-                obj.isExposed = true;
                 obj.transform.position = layout.GetCellCenterWorld(new Vector3Int(x, y, 0));
             }
         }
