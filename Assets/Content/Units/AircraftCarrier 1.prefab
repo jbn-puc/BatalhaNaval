@@ -42,14 +42,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8624564148569494264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ed74bc8190af74f8ece5ae99e3f770, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dd6ebcc607aacb4c9279c4ff1bc4fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   structure:
-    width: 5
+    width: 3
     height: 1
-    composition: 0101010101
-  alias: Jato
+    composition: 010101
+  alias: 
 --- !u!33 &8624564148569494266
 MeshFilter:
   m_ObjectHideFlags: 0
