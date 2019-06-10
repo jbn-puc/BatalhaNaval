@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 792163281313179194}
   - component: {fileID: 1830567016018201368}
   - component: {fileID: 4012800436679692124}
+  - component: {fileID: 3179478613591387817}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -51,7 +52,7 @@ MonoBehaviour:
   normal: {r: 1, g: 1, b: 1, a: 0.19607843}
   friendly: {r: 0, g: 0.7303271, b: 1, a: 0.3137255}
   enemy: {r: 1, g: 0, b: 0, a: 0.3137255}
-  empty: {r: 0, g: 0, b: 0, a: 0.19607843}
+  empty: {r: 0, g: 0.7303271, b: 1, a: 0.3137255}
   isHovered: 0
   isAlly: 0
   isExposed: 0
@@ -100,3 +101,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3179478613591387817
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408047737385979313}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}

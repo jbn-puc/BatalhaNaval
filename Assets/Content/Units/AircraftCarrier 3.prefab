@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8624564148569494266}
   - component: {fileID: 8624564148569494267}
   m_Layer: 0
-  m_Name: AircraftCarrier 2
+  m_Name: AircraftCarrier 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

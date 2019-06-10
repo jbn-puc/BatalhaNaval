@@ -25,7 +25,7 @@ public class Field
         for (var x = 0; x < width; x++)
         {
             for (var y = 0; y < height; y++)
-            { 
+            {
                 var obj = Grid[x, y] = Object.Instantiate(slotPrefab, layout.transform);
                 obj.transform.position = layout.GetCellCenterWorld(new Vector3Int(x, y, 0));
             }
@@ -47,7 +47,7 @@ public class Field
                             Grid[baseX + x, baseY + y].unit = unit;
                         }
                     }
-                    Debug.Log(baseX + " -> " + (baseX + unit.structure.width)+", "+ baseY + " -> " + (baseY + unit.structure.height)+ ": "+unit);
+                    Debug.Log(baseX + " -> " + (baseX + unit.structure.width) + ", " + baseY + " -> " + (baseY + unit.structure.height) + ": " + unit);
                     placed = true;
                 }
             }
@@ -74,7 +74,7 @@ public class GameManager : Singleton<GameManager>
     public bool allowInput = true;
     public Deck deck;
     private Coroutine awaitRoutine;
-
+    public AudioClip explosion, water;
     private void Update()
     {
         var c = Camera.main;
@@ -92,6 +92,7 @@ public class GameManager : Singleton<GameManager>
 
         var wp = hit.point;
         selected = (Vector2Int)layout.WorldToCell(wp);
+        Debug.Log(selected);
         if ((state == GameState.Player1 || state == GameState.Player2) && allowInput)
         {
 
@@ -100,7 +101,17 @@ public class GameManager : Singleton<GameManager>
                 return;
             }
 
-            CurrentField.Grid[selected.x, selected.y].isExposed = true;
+            var slot = CurrentField.Grid[selected.x, selected.y];
+            slot.isExposed = true;
+            if (slot.unit == null)
+            {
+                AudioSource.PlayClipAtPoint(water, c.transform.position);
+            }
+            else
+            {
+                AudioSource.PlayClipAtPoint(explosion, c.transform.position);
+
+            }
 
             Coroutines.ReplaceCoroutine(ref awaitRoutine, this, AwaitTurn());
         }

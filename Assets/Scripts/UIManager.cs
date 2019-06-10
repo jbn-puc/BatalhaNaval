@@ -36,10 +36,10 @@ public class UIManager : Singleton<UIManager> {
 
     private void Start() {
         var gm = GameManager.Instance;
-        foreach (var unit in gm.deck.availableUnits) {
+        /*foreach (var unit in gm.deck.availableUnits) {
             var p = Instantiate(placerPrefab, @group.transform);
             p.Init(unit);
-        }
+        }*/
     }
 
     private void UpdatePlacement(GameManager gm) { }
