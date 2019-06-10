@@ -91,13 +91,12 @@ public class GameManager : Singleton<GameManager>
         }
         if ((state == GameState.PlacingPlayer1 || state == GameState.PlacingPlayer2) && allowInput)
         {
-            Debug.Log(state);
+
             switch (state)
             {
                 case GameState.PlacingPlayer1:
                     player1.SetVisible(true);
                     player2.SetVisible(false);
-                    Debug.Log("Visible");
                     break;
                 case GameState.PlacingPlayer2:
                     player1.SetVisible(false);

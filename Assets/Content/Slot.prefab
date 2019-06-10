@@ -50,9 +50,9 @@ MonoBehaviour:
   renderer: {fileID: 4012800436679692124}
   hoverBrightnessIncrease: 0.25
   normal: {r: 1, g: 1, b: 1, a: 0.19607843}
-  friendly: {r: 0, g: 0.7303271, b: 1, a: 0.3137255}
+  friendly: {r: 0, g: 1, b: 0.2166791, a: 0.3137255}
   enemy: {r: 1, g: 0, b: 0, a: 0.3137255}
-  empty: {r: 0, g: 0.7303271, b: 1, a: 0.3137255}
+  empty: {r: 0, g: 0.7294118, b: 1, a: 0.3137255}
   isHovered: 0
   isAlly: 0
   isExposed: 0
