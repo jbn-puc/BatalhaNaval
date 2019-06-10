@@ -30,7 +30,10 @@ public class Field
                 obj.transform.position = layout.GetCellCenterWorld(new Vector3Int(x, y, 0));
             }
         }
-        foreach (var unit in
+
+        /*
+         * 
+         *  foreach (var unit in
         manager.deck.availableUnits)
         {
             bool placed = false;
@@ -40,18 +43,13 @@ public class Field
                 var baseY = Random.Range(0, height);
                 if (unit.structure.CanPlaceIn(this, baseX, baseY))
                 {
-                    for (var x = 0; x < unit.structure.width; x++)
-                    {
-                        for (var y = 0; y < unit.structure.height; y++)
-                        {
-                            Grid[baseX + x, baseY + y].unit = unit;
-                        }
-                    }
+                    unit.PlaceIn(this, baseX, baseY);
                     Debug.Log(baseX + " -> " + (baseX + unit.structure.width) + ", " + baseY + " -> " + (baseY + unit.structure.height) + ": " + unit);
                     placed = true;
                 }
             }
         }
+         */
     }
 
     public void SetVisible(bool visible)
@@ -67,6 +65,7 @@ public class GameManager : Singleton<GameManager>
 {
     public GridSlot slotPrefab;
     public Field player1, player2;
+    public Planner planner1, planner2;
     public Grid layout;
     public GameState state;
     public byte width, height;
@@ -85,14 +84,40 @@ public class GameManager : Singleton<GameManager>
 
         var ray = c.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (!Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
-            return;
+            var wp = hit.point;
+            selected = (Vector2Int)layout.WorldToCell(wp);
         }
+        if ((state == GameState.PlacingPlayer1 || state == GameState.PlacingPlayer2) && allowInput)
+        {
+            Debug.Log(state);
+            switch (state)
+            {
+                case GameState.PlacingPlayer1:
+                    player1.SetVisible(true);
+                    player2.SetVisible(false);
+                    Debug.Log("Visible");
+                    break;
+                case GameState.PlacingPlayer2:
+                    player1.SetVisible(false);
+                    player2.SetVisible(true);
+                    break;
+            }
 
-        var wp = hit.point;
-        selected = (Vector2Int)layout.WorldToCell(wp);
-        Debug.Log(selected);
+            var p = CurrentPlanner;
+            if (p.Tick(this)) {
+                foreach (var e in CurrentField.Grid)
+                {
+                    e.isAlly = false;
+                }
+                p.enabled = false;
+                state++;
+                if (state == GameState.Player1) {
+                    player1.SetVisible(true);
+                }
+            }
+        }
         if ((state == GameState.Player1 || state == GameState.Player2) && allowInput)
         {
 
@@ -151,20 +176,36 @@ public class GameManager : Singleton<GameManager>
     {
         player1 = new Field(this);
         player2 = new Field(this);
-        //player1.SetVisible(tr);
+        player1.SetVisible(false);
         player2.SetVisible(false);
     }
+    public Planner CurrentPlanner
+    {
+        get
+        {
+            if (state == GameState.PlacingPlayer1)
+            {
+                return planner1;
+            }
 
+            if (state == GameState.PlacingPlayer2)
+            {
+                return planner2;
+            }
+
+            return null;
+        }
+    }
     public Field CurrentField
     {
         get
         {
-            if (state == GameState.Player1)
+            if (state == GameState.Player1 || state == GameState.PlacingPlayer1)
             {
                 return player1;
             }
 
-            if (state == GameState.Player2)
+            if (state == GameState.Player2 || state == GameState.PlacingPlayer2)
             {
                 return player2;
             }

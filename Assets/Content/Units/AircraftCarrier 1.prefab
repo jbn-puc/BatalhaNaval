@@ -49,7 +49,7 @@ MonoBehaviour:
     width: 3
     height: 1
     composition: 010101
-  alias: 
+  alias: Cruiser
 --- !u!33 &8624564148569494266
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8624564148569494266}
   - component: {fileID: 8624564148569494267}
   m_Layer: 0
-  m_Name: AircraftCarrier
+  m_Name: Jet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
     width: 1
     height: 1
     composition: 01
-  alias: Ket
+  alias: Jet
 --- !u!33 &8624564148569494266
 MeshFilter:
   m_ObjectHideFlags: 0

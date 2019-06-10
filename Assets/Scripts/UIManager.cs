@@ -2,16 +2,20 @@ using System;
 using Lunari.Tsuki.Singletons;
 using UnityEngine.UI;
 
-public class UIManager : Singleton<UIManager> {
+public class UIManager : Singleton<UIManager>
+{
     public Text statusDisplay;
     public HorizontalLayoutGroup group;
     public UnitPlacer placerPrefab;
     private UnitPlacer[] placers;
 
-    private void Update() {
+    private void Update()
+    {
         var gm = GameManager.Instance;
+        group.gameObject.SetActive(gm.state == GameState.PlacingPlayer1 || gm.state == GameState.PlacingPlayer2);
         string msg;
-        switch (gm.state) {
+        switch (gm.state)
+        {
             case GameState.PlacingPlayer1:
                 msg = "Player 1, posicione sua armada";
                 break;
@@ -29,17 +33,20 @@ public class UIManager : Singleton<UIManager> {
         }
 
         statusDisplay.text = msg;
-        if (gm.state == GameState.PlacingPlayer1 || gm.state == GameState.PlacingPlayer2) {
+        if (gm.state == GameState.PlacingPlayer1 || gm.state == GameState.PlacingPlayer2)
+        {
             UpdatePlacement(gm);
         }
     }
 
-    private void Start() {
+    private void Start()
+    {
         var gm = GameManager.Instance;
-        /*foreach (var unit in gm.deck.availableUnits) {
+        foreach (var unit in gm.deck.availableUnits)
+        {
             var p = Instantiate(placerPrefab, @group.transform);
             p.Init(unit);
-        }*/
+        }
     }
 
     private void UpdatePlacement(GameManager gm) { }

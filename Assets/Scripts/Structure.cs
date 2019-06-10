@@ -28,4 +28,6 @@ public struct Structure
         }
         return true;
     }
+
+    
 }
